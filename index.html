@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edu Fair &amp; Career Expo 2026 — SMKN 6 Kota Tangerang Selatan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <style>
+    * { box-sizing: border-box; scroll-behavior: smooth; }
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      color: #0f172a;
+      background-color: #f8fafc;
+      margin: 0;
+    }
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 9999;
+      transform: translateY(130%);
+      opacity: 0;
+      transition: all 0.25s ease;
+    }
+    .toast.show { transform: translateY(0); opacity: 1; }
+  </style>
+</head>
+<body class="antialiased">
+  <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-slate-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between gap-4 text-xs sm:text-sm">
+      <div class="flex items-center gap-2.5 font-bold text-slate-900 shrink-0">
+        <span class="w-7 h-7 rounded-lg bg-blue-600 text-white flex items-center justify-center text-xs font-extrabold">S6</span>
+        <span class="hidden sm:inline">SMKN 6 Tangsel</span>
+      </div>
+      <div class="flex items-center gap-4 sm:gap-6 font-medium text-slate-600 overflow-x-auto">
+        <a href="#undangan" class="hover:text-blue-600 transition whitespace-nowrap">Undangan</a>
+        <a href="#informasi" class="hover:text-blue-600 transition whitespace-nowrap">Informasi</a>
+        <a href="#rundown" class="hover:text-blue-600 transition whitespace-nowrap">Rundown</a>
+        <a href="#benefit" class="hover:text-blue-600 transition whitespace-nowrap">Benefit</a>
+        <a href="#lokasi" class="hover:text-blue-600 transition whitespace-nowrap">Lokasi</a>
+      </div>
+      <a href="#rsvp" class="px-3.5 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold transition whitespace-nowrap">
+        Konfirmasi RSVP
+      </a>
+    </div>
+  </nav>
+
+  <header class="bg-white border-b border-slate-200 py-12 sm:py-16 px-4 sm:px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-700 border border-blue-200 text-xs font-semibold mb-4">
+        <span>Undangan Resmi</span>
+        <span>•</span>
+        <span>SMKN 6 Kota Tangerang Selatan</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 mb-3">
+        Edu Fair &amp; Career Expo 2026
+      </h1>
+      <p class="text-sm sm:text-lg text-slate-500 max-w-2xl mx-auto font-medium mb-10">
+        &ldquo;Connecting Competence to Future: Bekerja, Melanjutkan, Berwirausaha&rdquo;
+      </p>
+
+      <div id="undangan" class="scroll-mt-20 max-w-xl mx-auto rounded-2xl bg-slate-50 border border-slate-200 shadow-sm p-6 sm:p-8 text-left">
+        <div class="flex items-center justify-between gap-2 mb-3">
+          <span class="text-xs font-semibold uppercase tracking-wider text-slate-400">Kepada Yth.</span>
+          <span id="guest-category" class="px-2.5 py-0.5 rounded-full bg-blue-100 text-blue-700 text-xs font-semibold">
+            Tamu Undangan
+          </span>
+        </div>
+        <h2 id="guest-name" class="text-xl sm:text-2xl font-bold text-slate-900">
+          Bapak/Ibu Perwakilan Instansi &amp; Alumni
+        </h2>
+        <p id="guest-institution" class="text-sm text-blue-600 font-semibold mt-1 hidden"></p>
+        <p class="text-sm text-slate-600 leading-relaxed border-t border-slate-200 pt-4 mt-4">
+          Dengan hormat, kami mengundang <strong id="guest-salutation" class="text-slate-900">Bapak/Ibu</strong> untuk hadir dan berpartisipasi sebagai mitra dalam ajang tahunan
+          <strong class="text-slate-900">Edu Fair &amp; Career Expo 2026</strong> di SMKN 6 Kota Tangerang Selatan.
+        </p>
+      </div>
+
+      <div class="mt-8 grid grid-cols-4 gap-3 max-w-md mx-auto">
+        <div class="rounded-xl bg-white border border-slate-200 py-3 px-2">
+          <div id="cd-days" class="text-xl sm:text-2xl font-bold text-slate-900">00</div>
+          <div class="text-[11px] font-medium text-slate-500 uppercase">Hari</div>
+        </div>
+        <div class="rounded-xl bg-white border border-slate-200 py-3 px-2">
+          <div id="cd-hours" class="text-xl sm:text-2xl font-bold text-slate-900">00</div>
+          <div class="text-[11px] font-medium text-slate-500 uppercase">Jam</div>
+        </div>
+        <div class="rounded-xl bg-white border border-slate-200 py-3 px-2">
+          <div id="cd-mins" class="text-xl sm:text-2xl font-bold text-slate-900">00</div>
+          <div class="text-[11px] font-medium text-slate-500 uppercase">Menit</div>
+        </div>
+        <div class="rounded-xl bg-white border border-slate-200 py-3 px-2">
+          <div id="cd-secs" class="text-xl sm:text-2xl font-bold text-blue-600">00</div>
+          <div class="text-[11px] font-medium text-slate-500 uppercase">Detik</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="informasi" class="py-12 px-4 sm:px-6 max-w-5xl mx-auto">
+    <div class="grid md:grid-cols-3 gap-5">
+      <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
+        <span class="text-xs font-semibold text-blue-600 uppercase tracking-wider">Tanggal</span>
+        <h3 class="text-lg font-bold text-slate-900 mt-1">Rabu, 25 November 2026</h3>
+        <p class="text-sm text-slate-500 mt-1.5">Agenda tahunan kolaborasi sekolah, industri, kampus, dan alumni.</p>
+      </div>
+      <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
+        <span class="text-xs font-semibold text-blue-600 uppercase tracking-wider">Waktu</span>
+        <h3 class="text-lg font-bold text-slate-900 mt-1">07.00 – 14.00 WIB</h3>
+        <p class="text-sm text-slate-500 mt-1.5">Registrasi booth dibuka pukul 07.00 WIB sebelum pembukaan.</p>
+      </div>
+      <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
+        <span class="text-xs font-semibold text-blue-600 uppercase tracking-wider">Lokasi</span>
+        <h3 class="text-lg font-bold text-slate-900 mt-1">SMKN 6 Kota Tangsel</h3>
+        <p class="text-sm text-slate-500 mt-1.5">Jl. Magnolia VI No. 6, Kel. Jelupang, Kec. Serpong Utara.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="rundown" class="py-10 px-4 sm:px-6 max-w-4xl mx-auto">
+    <div class="text-center mb-8">
+      <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">Rundown Acara</h2>
+      <p class="text-sm text-slate-500 mt-1">Susunan kegiatan Edu Fair &amp; Career Expo 2026</p>
+    </div>
+    <div class="bg-white rounded-2xl border border-slate-200 shadow-sm divide-y divide-slate-200">
+      <div class="p-5 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
+        <span class="text-xs font-semibold px-3 py-1 rounded-full bg-slate-100 text-slate-700 shrink-0 w-fit">07.00 – 08.00 WIB</span>
+        <div>
+          <h3 class="font-bold text-slate-900">Registrasi Tamu Undangan &amp; Persiapan Booth</h3>
+          <p class="text-sm text-slate-500 mt-0.5">Penyambutan perwakilan universitas, perusahaan mitra, dan alumni serta penataan area pameran.</p>
+        </div>
+      </div>
+      <div class="p-5 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
+        <span class="text-xs font-semibold px-3 py-1 rounded-full bg-slate-100 text-slate-700 shrink-0 w-fit">08.00 – 09.00 WIB</span>
+        <div>
+          <h3 class="font-bold text-slate-900">Pembukaan Resmi &amp; Sambutan</h3>
+          <p class="text-sm text-slate-500 mt-0.5">Sambutan Kepala SMKN 6 Kota Tangerang Selatan dan peresmian pembukaan acara.</p>
+        </div>
+      </div>
+      <div class="p-5 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
+        <span class="text-xs font-semibold px-3 py-1 rounded-full bg-blue-50 text-blue-700 shrink-0 w-fit">09.00 – 10.30 WIB</span>
+        <div>
+          <h3 class="font-bold text-slate-900">Talkshow: Bekerja, Melanjutkan, Berwirausaha</h3>
+          <p class="text-sm text-slate-500 mt-0.5">Sesi berbagi wawasan karier, studi lanjut perguruan tinggi, dan kewirausahaan bersama narasumber.</p>
+        </div>
+      </div>
+      <div class="p-5 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
+        <span class="text-xs font-semibold px-3 py-1 rounded-full bg-blue-50 text-blue-700 shrink-0 w-fit">10.30 – 13.30 WIB</span>
+        <div>
+          <h3 class="font-bold text-slate-900">Pameran Booth, Konsultasi Kampus &amp; Walk-in Interview</h3>
+          <p class="text-sm text-slate-500 mt-0.5">Kunjungan siswa ke booth universitas dan perusahaan mitra serta sesi rekrutmen talenta.</p>
+        </div>
+      </div>
+      <div class="p-5 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
+        <span class="text-xs font-semibold px-3 py-1 rounded-full bg-slate-100 text-slate-700 shrink-0 w-fit">13.30 – 14.00 WIB</span>
+        <div>
+          <h3 class="font-bold text-slate-900">Penyerahan Sertifikat Apresiasi &amp; Penutupan</h3>
+          <p class="text-sm text-slate-500 mt-0.5">Sesi foto bersama mitra, penyerahan sertifikat, dan penutupan acara.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="benefit" class="py-12 px-4 sm:px-6 max-w-5xl mx-auto">
+    <div class="text-center mb-8">
+      <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">Benefit Booth Mitra</h2>
+      <p class="text-sm text-slate-500 mt-1">Fasilitas yang disediakan panitia untuk instansi dan perusahaan peserta</p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+        <h3 class="font-bold text-slate-900 mb-1.5">Area Booth Strategis</h3>
+        <p class="text-sm text-slate-500">Meja display, kursi perwakilan, dan papan nama instansi di area utama.</p>
+      </div>
+      <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+        <h3 class="font-bold text-slate-900 mb-1.5">Listrik &amp; Wi-Fi Sekolah</h3>
+        <p class="text-sm text-slate-500">Dukungan terminal daya listrik dan akses internet untuk presentasi booth.</p>
+      </div>
+      <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+        <h3 class="font-bold text-slate-900 mb-1.5">Akses Talenta Vokasi</h3>
+        <p class="text-sm text-slate-500">Bertemu langsung dengan siswa dan lulusan kompetensi keahlian IT &amp; kreatif.</p>
+      </div>
+      <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+        <h3 class="font-bold text-slate-900 mb-1.5">Konsumsi &amp; Sertifikat</h3>
+        <p class="text-sm text-slate-500">Snack, makan siang untuk perwakilan, dan sertifikat apresiasi resmi.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="lokasi" class="py-8 px-4 sm:px-6 max-w-5xl mx-auto">
+    <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 grid lg:grid-cols-5 gap-6 items-center">
+      <div class="lg:col-span-2 space-y-3">
+        <span class="text-xs font-semibold text-blue-600 uppercase tracking-wider">Peta Lokasi</span>
+        <h2 class="text-xl font-bold text-slate-900">SMKN 6 Kota Tangerang Selatan</h2>
+        <p class="text-sm text-slate-500 leading-relaxed">Jl. Magnolia VI No. 6, Kelurahan Jelupang, Kecamatan Serpong Utara, Kota Tangerang Selatan, Banten 15323.</p>
+        <a href="https://www.google.com/maps/search/?api=1&query=SMKN+6+Kota+Tangerang+Selatan" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold transition">
+          Buka di Google Maps ↗
+        </a>
+      </div>
+      <div class="lg:col-span-3">
+        <div class="w-full h-64 rounded-xl overflow-hidden border border-slate-200 bg-slate-100">
+          <iframe
+            title="Peta SMKN 6 Kota Tangerang Selatan"
+            src="https://maps.google.com/maps?q=SMKN+6+Kota+Tangerang+Selatan,+Jl.+Magnolia+VI+No.6,+Jelupang&t=&z=16&ie=UTF8&iwloc=&output=embed"
+            class="w-full h-full border-0"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="rsvp" class="py-12 px-4 sm:px-6 max-w-2xl mx-auto pb-20">
+    <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8">
+      <div class="text-center mb-6">
+        <h2 class="text-2xl font-bold text-slate-900">Konfirmasi Kehadiran (RSVP)</h2>
+        <p class="text-sm text-slate-500 mt-1">Lengkapi formulir berikut untuk pendataan panitia dan penyiapan booth.</p>
+      </div>
+      <form id="rsvp-form" class="space-y-4">
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label for="rsvp-nama" class="block text-xs font-semibold text-slate-700 mb-1.5">Nama Perwakilan (PIC)</label>
+            <input id="rsvp-nama" type="text" required placeholder="Contoh: Dr. Rina Kusumawati" class="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:border-blue-600 focus:ring-2 focus:ring-blue-100 outline-none transition" />
+          </div>
+          <div>
+            <label for="rsvp-instansi" class="block text-xs font-semibold text-slate-700 mb-1.5">Nama Instansi / Angkatan</label>
+            <input id="rsvp-instansi" type="text" required placeholder="Contoh: Universitas Indonesia" class="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:border-blue-600 focus:ring-2 focus:ring-blue-100 outline-none transition" />
+          </div>
+        </div>
+        <div class="grid sm:grid-cols-3 gap-4">
+          <div>
+            <label for="rsvp-kategori" class="block text-xs font-semibold text-slate-700 mb-1.5">Kategori</label>
+            <select id="rsvp-kategori" class="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm bg-white focus:border-blue-600 focus:ring-2 focus:ring-blue-100 outline-none transition">
+              <option value="Universitas">Universitas / Kampus</option>
+              <option value="Perusahaan">Perusahaan Mitra</option>
+              <option value="Alumni">Alumni</option>
+              <option value="Guru">Guru / Civitas Sekolah</option>
+              <option value="Lainnya">Lainnya</option>
+            </select>
+          </div>
+          <div>
+            <label for="rsvp-status" class="block text-xs font-semibold text-slate-700 mb-1.5">Status Kehadiran</label>
+            <select id="rsvp-status" class="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm bg-white focus:border-blue-600 focus:ring-2 focus:ring-blue-100 outline-none transition">
+              <option value="Hadir">Hadir</option>
+              <option value="Tidak Hadir">Berhalangan Hadir</option>
+            </select>
+          </div>
+          <div>
+            <label for="rsvp-jumlah" class="block text-xs font-semibold text-slate-700 mb-1.5">Jumlah Tim</label>
+            <input id="rsvp-jumlah" type="number" min="1" max="10" value="2" class="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:border-blue-600 focus:ring-2 focus:ring-blue-100 outline-none transition" />
+          </div>
+        </div>
+        <div>
+          <label for="rsvp-catatan" class="block text-xs font-semibold text-slate-700 mb-1.5">Catatan / Kebutuhan Booth (Opsional)</label>
+          <textarea id="rsvp-catatan" rows="2" placeholder="Contoh: Membutuhkan colokan listrik tambahan" class="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:border-blue-600 focus:ring-2 focus:ring-blue-100 outline-none transition"></textarea>
+        </div>
+        <button type="submit" class="w-full py-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm transition">
+          Kirim Konfirmasi Kehadiran
+        </button>
+      </form>
+      <div id="rsvp-result" class="hidden mt-5 p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-900 text-sm"></div>
+    </div>
+  </section>
+
+  <button id="bgm-toggle" type="button" class="fixed bottom-5 left-5 z-50 flex items-center gap-2 px-3.5 py-2 rounded-full bg-white border border-slate-200 shadow-sm text-slate-700 hover:bg-slate-50 text-xs font-semibold transition">
+    <span id="bgm-icon">♪</span>
+    <span id="bgm-label">BGM: OFF</span>
+  </button>
+
+  <div id="toast" class="toast bg-slate-900 text-white px-4 py-2.5 rounded-lg shadow-lg text-xs font-semibold"></div>
+
+  <script>
+    function escapeHtml(str) {
+      return String(str).replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]));
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2500);
+    }
+
+    function getUrlParams() {
+      const merged = new URLSearchParams(window.location.search);
+      const hash = window.location.hash || '';
+      const qIdx = hash.indexOf('?');
+      if (qIdx !== -1) {
+        const hashParams = new URLSearchParams(hash.slice(qIdx + 1));
+        hashParams.forEach((value, key) => {
+          if (!merged.has(key)) merged.set(key, value);
+        });
+      }
+      return merged;
+    }
+
+    function applyPersonalizationFromUrl() {
+      const params = getUrlParams();
+      const rawName = params.get('to') || params.get('nama') || params.get('nama_tamu') || '';
+      const rawInstansi = params.get('instansi') || '';
+      const rawKategori = params.get('kategori') || '';
+
+      const toParam = rawName.trim();
+      const instansiParam = rawInstansi.trim();
+      const kategoriParam = rawKategori.trim();
+
+      const guestNameEl = document.getElementById('guest-name');
+      const guestSalutationEl = document.getElementById('guest-salutation');
+      const guestInstEl = document.getElementById('guest-institution');
+      const guestCatEl = document.getElementById('guest-category');
+      const rsvpNama = document.getElementById('rsvp-nama');
+      const rsvpInstansi = document.getElementById('rsvp-instansi');
+      const rsvpKategori = document.getElementById('rsvp-kategori');
+
+      if (toParam) {
+        guestNameEl.textContent = toParam;
+        guestSalutationEl.textContent = toParam;
+        rsvpNama.value = toParam;
+        document.title = `Undangan untuk ${toParam} — Edu Fair & Career Expo 2026`;
+      } else {
+        guestNameEl.textContent = 'Bapak/Ibu Perwakilan Instansi & Alumni';
+        guestSalutationEl.textContent = 'Bapak/Ibu';
+        rsvpNama.value = '';
+        document.title = 'Edu Fair & Career Expo 2026 — SMKN 6 Kota Tangerang Selatan';
+      }
+
+      if (instansiParam) {
+        guestInstEl.textContent = instansiParam;
+        guestInstEl.classList.remove('hidden');
+        rsvpInstansi.value = instansiParam;
+      } else {
+        guestInstEl.textContent = '';
+        guestInstEl.classList.add('hidden');
+        rsvpInstansi.value = '';
+      }
+
+      if (kategoriParam) {
+        guestCatEl.textContent = kategoriParam;
+        const lowerCat = kategoriParam.toLowerCase();
+        if (lowerCat.includes('univ') || lowerCat.includes('kampus')) rsvpKategori.value = 'Universitas';
+        else if (lowerCat.includes('perusahaan') || lowerCat.includes('industri')) rsvpKategori.value = 'Perusahaan';
+        else if (lowerCat.includes('alumni')) rsvpKategori.value = 'Alumni';
+        else if (lowerCat.includes('guru') || lowerCat.includes('civitas')) rsvpKategori.value = 'Guru';
+        else rsvpKategori.value = 'Lainnya';
+      } else {
+        guestCatEl.textContent = 'Tamu Undangan';
+        rsvpKategori.value = 'Universitas';
+      }
+    }
+
+    applyPersonalizationFromUrl();
+    window.addEventListener('popstate', applyPersonalizationFromUrl);
+    window.addEventListener('hashchange', applyPersonalizationFromUrl);
+
+    const targetTime = new Date('2026-11-25T07:00:00+07:00').getTime();
+    function updateCountdown() {
+      const diff = Math.max(0, targetTime - Date.now());
+      document.getElementById('cd-days').textContent = String(Math.floor(diff / 86400000)).padStart(2, '0');
+      document.getElementById('cd-hours').textContent = String(Math.floor((diff / 3600000) % 24)).padStart(2, '0');
+      document.getElementById('cd-mins').textContent = String(Math.floor((diff / 60000) % 60)).padStart(2, '0');
+      document.getElementById('cd-secs').textContent = String(Math.floor((diff / 1000) % 60)).padStart(2, '0');
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    document.getElementById('rsvp-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const data = {
+        nama: document.getElementById('rsvp-nama').value.trim(),
+        instansi: document.getElementById('rsvp-instansi').value.trim(),
+        kategori: document.getElementById('rsvp-kategori').value,
+        status: document.getElementById('rsvp-status').value,
+        jumlah: document.getElementById('rsvp-jumlah').value,
+        catatan: document.getElementById('rsvp-catatan').value.trim()
+      };
+      try {
+        const list = JSON.parse(localStorage.getItem('edufair_rsvp_list') || '[]');
+        list.push(data);
+        localStorage.setItem('edufair_rsvp_list', JSON.stringify(list));
+      } catch (err) {}
+      const res = document.getElementById('rsvp-result');
+      res.innerHTML = `<p class="font-bold mb-1">Terima kasih, ${escapeHtml(data.nama)}!</p><p>Konfirmasi kehadiran untuk <strong>${escapeHtml(data.instansi)}</strong> (${escapeHtml(data.kategori)}) tercatat dengan status <strong>${escapeHtml(data.status)}</strong> (${escapeHtml(data.jumlah)} orang).</p>`;
+      res.classList.remove('hidden');
+      showToast('Konfirmasi RSVP berhasil disimpan');
+    });
+
+    (function initBGM() {
+      const btn = document.getElementById('bgm-toggle');
+      const label = document.getElementById('bgm-label');
+      const icon = document.getElementById('bgm-icon');
+      if (!btn || !label || !icon) return;
+
+      let audioCtx = null;
+      let isPlaying = false;
+      let loopTimer = null;
+      let stepIndex = 0;
+
+      const chords = [
+        [261.63, 329.63, 392.00, 493.88, 587.33],
+        [220.00, 261.63, 329.63, 392.00, 493.88],
+        [174.61, 220.00, 261.63, 329.63, 392.00],
+        [196.00, 246.94, 293.66, 329.63, 392.00]
+      ];
+      const melodyNotes = [523.25, 587.33, 659.25, 783.99, 659.25, 587.33, 493.88, 523.25];
+
+      function playStep() {
+        if (!isPlaying || !audioCtx) return;
+        const now = audioCtx.currentTime;
+        const chord = chords[stepIndex % chords.length];
+        chord.forEach((freq) => {
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(freq, now);
+          gain.gain.setValueAtTime(0.0001, now);
+          gain.gain.exponentialRampToValueAtTime(0.025, now + 0.6);
+          gain.gain.exponentialRampToValueAtTime(0.0001, now + 2.4);
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+          osc.start(now);
+          osc.stop(now + 2.45);
+        });
+        const noteFreq = melodyNotes[stepIndex % melodyNotes.length];
+        const bell = audioCtx.createOscillator();
+        const bellGain = audioCtx.createGain();
+        bell.type = 'triangle';
+        bell.frequency.setValueAtTime(noteFreq, now + 0.35);
+        bellGain.gain.setValueAtTime(0.0001, now + 0.35);
+        bellGain.gain.exponentialRampToValueAtTime(0.03, now + 0.45);
+        bellGain.gain.exponentialRampToValueAtTime(0.0001, now + 1.8);
+        bell.connect(bellGain);
+        bellGain.connect(audioCtx.destination);
+        bell.start(now + 0.35);
+        bell.stop(now + 1.85);
+        stepIndex++;
+      }
+
+      function startBGM() {
+        if (!audioCtx) {
+          const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+          if (!AudioContextClass) return;
+          audioCtx = new AudioContextClass();
+        }
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+        if (isPlaying) return;
+        isPlaying = true;
+        label.textContent = 'BGM: ON';
+        icon.textContent = '♫';
+        btn.classList.remove('bg-white', 'text-slate-700');
+        btn.classList.add('bg-slate-900', 'text-white');
+        playStep();
+        loopTimer = setInterval(playStep, 2200);
+      }
+
+      function stopBGM() {
+        isPlaying = false;
+        if (loopTimer) { clearInterval(loopTimer); loopTimer = null; }
+        label.textContent = 'BGM: OFF';
+        icon.textContent = '♪';
+        btn.classList.remove('bg-slate-900', 'text-white');
+        btn.classList.add('bg-white', 'text-slate-700');
+      }
+
+      btn.addEventListener('click', () => {
+        if (isPlaying) stopBGM();
+        else startBGM();
+      });
+    })();
+  </script>
+</body>
+</html>
